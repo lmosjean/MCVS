@@ -1,49 +1,44 @@
-# MCVS v0.2
-Modular computational vision system
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Este é um sistema de visão computacional, o objetivo geral é a sua integração com MCUs externas como STM32 e Arduino e funcionamento em computadores de placa unica.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Funcionamento:
+MCVS v0.2
+Modular Computational Vision System
 
-Atualmente está rodando em um pc com webcam, pode ser adapdato para computadores de placa única(RaspberryPi, OrangePi)
-Interpreta gestos feitos com a mão direita, faz a contagem de dedos mostrados e utiliza este valor para enviar comandos para um microcontrolador.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Comunicação com a MCU:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This is a computer vision system with the overall objective of integrating it with external MCUs such as STM32 and Arduino, as well as functioning on single-board computers.
 
-Utiliza o protocolo firmata para a comunicação serial com a MCU. Para utilizar um modulo bluetooth no arduino e um dongle USB Bluetooth no PC foram feitas alterações no sketch 'Standard Firmata' para adequar a Baud Rate do módulo.  
-Utilizar este protocolo permite que comandos sejam enviados ao microcontrolador de maneira remota, sem a necessidade de atualizar o codigo no lado do arduino a cada nova alteração. Neste caso, as portas podem ser utilizadas tanto como saidas quanto entradas. (EX:controlar motores pelo pc, ou ler sensores e enviar para o python)
+Currently, the system is running on a PC with a webcam but can be adapted for single-board computers like Raspberry Pi or Orange Pi. It interprets gestures made with the right hand, counts the number of fingers shown, and uses this value to send commands to a microcontroller.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+It utilizes the Firmata protocol for serial communication with the MCU. 
+
+To enable Bluetooth functionality, the 'Standard Firmata' sketch was modded to match the baud rate of the HC-05 bluetooth module(9600), it's perfectly possible to use an serial adapter like CH340 tho. 
+
+Using this protocol enables remote commands to be sent to the microcontroller without the need to update the Arduino code for each new implementation, giving space for the creativity in the PC processing side. 
+
+The ports can be used both as outputs and inputs. For example, you can control motors from the PC or read sensors and send the aquired data to your server for processing. 
+
 _______________________________________________________________________________________________________________________________________________________________________
-Implementações futuras:
+Future Implementations:
 
-Reconhecimento de objetos
-
-Trackeamento de rosto (follow me)
-
-Protocolo MQTT + ESP32
-
-Integração com MYSQL  
-
-Travas de segurança em perda de conexão
-
+1. Object recognition
+2. Face tracking (follow me)
+3. MQTT + ESP32 protocol integration
+4. Integration with MySQL for data storage
+5. Safety locks in case of connection loss
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Hardware utilizado:
-Arduino Pro Mini 5v
-Modulo Bluetooth Baud Rate : [9600]
-L293 + PCB customizada
-LM7805
-Mecanica + motores de um carrinho de brinquedo. 
-Bateria de LI-Io, 2200Mah
+Hardware used:
 
-Hardware desenvolvidas para este projeto
-Estes ainda estão em teste, serão disponibilizados em breve. 
+- Arduino Pro Mini 5v
+- Bluetooth Module (Baud Rate: 9600)
+- L293 Motor Driver + Custom PCB
+- LM7805 Voltage Regulator
+- Mechanical components and toy car motors
+- 2200mAh Li-Ion battery
 
--PCI Driver L293 (Ponte H) : [LINK]
--PCI Arduino Standalone : [LINK]
+Hardware developed for this project is currently in testing and will be made available soon.
 
-As placas foram desenvolvidas utilizando o software Proteus 8.5 e prototipadas em CNC laser. 
-Confira o processo: [LINK]
+- PCI Driver L293 (H-Bridge)
+- PCI Arduino Standalone 
+
+The PCBs were designed using Proteus 8.5 software and prototyped using CNC laser technology. You can find the detailed process here: [LINK]
 _______________________________________________________________________________________________________________________________________________________________________
 
